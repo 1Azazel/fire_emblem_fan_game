@@ -1,0 +1,18 @@
+sprite sheet is 360 pixels across
+each sprite square is 32x32 pixels in size
+there are 10 sprites across at most
+360 - 320 = 40 pixels
+10 sprite rows have 16 pixels of delineating space on the left-hand side
+Therefore there is most likely an equal number of right-hand side pixels
+Due to the symmetry of the sheet
+40 - 16 - 16 = 8 pixels
+Each side of the sheet has a 1 pixel wide divider separating the boxes that contain the sprites
+5 sprites require 4 dividers to keep separate
+Each side has 5 sprites: 8 pixels total
+
+So for a typical row of sprites, the pixels in each row look something like this:
+bg_pixels[16] + sprite_pixels[32] + bg_pixels[1] + sprite_pixels[32] + ... and so on
+note that this system causes a 2 pixel band to form in the very center, along the lines x = 180 and x = 181
+
+The first square of the animation sequence is omitted. So we start our sprite library on the position of square 2
+There is also a 6 pixel border at the very top of the image
